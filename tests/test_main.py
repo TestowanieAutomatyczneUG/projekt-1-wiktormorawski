@@ -14,7 +14,8 @@ class TestMain(unittest.TestCase):
         self.assertEqual(expected, self.temp.Morse_coding('ryba'))
     def test_morse_coding_polish_letters(self):
         assert_that(self.temp.Morse_coding).raises(Exception).when_called_with('śćżźąę€ółń')
-
+    def test_morse_coding_with_sentence(self):
+        assert_that(self.temp.Morse_coding('Ala ma kota')).is_equal_to('.- .-.. .-     -- .-     -.- --- - .- ')
     def tearDown(self):
         self.test_object = None
 

@@ -20,3 +20,5 @@ def Morse_coding(text):
             raise Exception('Contains polish letters')
     return result
 print(Morse_coding('śćżźąę€ółń'))
+.- .-.. .-      -- .-      -.- --- - .-
+.- .-.. .-     -- .-     -.- --- - .-

@@ -1,4 +1,5 @@
 # general things to ignore
+src/dont_mind.py
 build/
 dist/
 *.egg-info/

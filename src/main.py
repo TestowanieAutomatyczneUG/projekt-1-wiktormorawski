@@ -1,6 +1,6 @@
 class Main:
     def Morse_coding(self, text):
-        translation = [(' ', '     '), ('A', '.-'), ('B', '-...'), ('C', '-.-.'), ('D', '-..'), ('E', '.'),
+        translation = [(' ', '   '), ('A', '.-'), ('B', '-...'), ('C', '-.-.'), ('D', '-..'), ('E', '.'),
                        ('F', '..-.'),
                        ('G', '--.'), ('H', '....'), ('I', '..'), ('J', '.---'), ('K', '-.-'), ('L', '.-..'),
                        ('M', '--'), ('N', '-.'),
@@ -20,3 +20,6 @@ class Main:
             else:
                 raise Exception('Contains polish letters')
         return result
+    def Morse_decoding(self, morse_code):
+        return morse_code
+
