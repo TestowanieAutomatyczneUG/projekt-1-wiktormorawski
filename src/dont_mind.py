@@ -19,6 +19,4 @@ def Morse_coding(text):
         else:
             raise Exception('Contains polish letters')
     return result
-print(Morse_coding('śćżźąę€ółń'))
-.- .-.. .-      -- .-      -.- --- - .-
-.- .-.. .-     -- .-     -.- --- - .-
+print(Morse_coding('mrozonka'))
