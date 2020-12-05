@@ -22,6 +22,8 @@ class TestMain(unittest.TestCase):
     def test_morse_decoding_to_sentence(self):
         expected = 'ahoj zabawa i jedziemy dalej'
         assert_that(self.temp.Morse_decoding('.- .... --- .---     --.. .- -... .- .-- .-     ..     .--- . -.. --.. .. . -- -.--     -.. .- .-.. . .---')).is_equal_to(expected)
+    def test_morse_decoding_Exception_when_wrong_space_in_code(self):
+        assert_that(self.temp.Morse_decoding).raises(Exception).when_called_with('.- .... --- .---    --.. .- -... .- .-- .-')
     def tearDown(self):
         self.test_object = None
 
