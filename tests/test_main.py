@@ -1,5 +1,6 @@
 from main import Main
 import unittest
+from assertpy import assert_that
 
 
 class TestMain(unittest.TestCase):
@@ -12,8 +13,8 @@ class TestMain(unittest.TestCase):
         expected = '.-. -.-- -... .- '
         self.assertEqual(expected, self.temp.Morse_coding('ryba'))
     def test_morse_coding_polish_letters(self):
-        expected = Exception
-        self.assertRaises(expected, self.temp.Morse_coding('śćżźąę€ółń'))
+        assert_that(self.temp.Morse_coding).raises(Exception).when_called_with('śćżźąę€ółń')
+
     def tearDown(self):
         self.test_object = None
 
