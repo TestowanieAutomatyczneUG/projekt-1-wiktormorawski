@@ -6,10 +6,10 @@ class TestMain(unittest.TestCase):
     def setUp(self):
         self.temp = Main()
     def test_morse_coding_value_equal_wiktor(self):
-        expected = '.-- .. -.- - --- .-.'
+        expected = '.-- .. -.- - --- .-. '
         self.assertEqual(expected, self.temp.Morse_coding('wiktor'))
     def test_morse_coding_value_equal_ryba(self):
-        expected = '.-. -.-- -... .-'
+        expected = '.-. -.-- -... .- '
         self.assertEqual(expected, self.temp.Morse_coding('ryba'))
     def tearDown(self):
         self.test_object = None
