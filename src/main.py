@@ -31,10 +31,16 @@ class Main:
                        ('2', '..---'), ('3', '...--'), ('4', '....-'), ('5', '.....'), ('6', '-....'), ('7', '--...'),
                        ('8', '---..'), ('9', '----.')]
         result = ''
+        space_count = 0
         prepared_morse_code = morse_code.split(' ')
         for code in prepared_morse_code:
+            if code == '':
+                space_count += 1
+                if space_count == 4:
+                    result += ' '
+                    space_count = 0
             for trans_letter_code in translation:
                 if code == trans_letter_code[1]:
                     result += trans_letter_code[0]
         return result.lower()
-    
+

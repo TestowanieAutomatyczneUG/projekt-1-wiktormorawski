@@ -19,6 +19,9 @@ class TestMain(unittest.TestCase):
     def test_morse_decoding_to_text_without_space_between_equal(self):
         expected = 'mrozonka'
         assert_that(self.temp.Morse_decoding('-- .-. --- --.. --- -. -.- .- ')).is_equal_to(expected)
+    def test_morse_decoding_to_sentence(self):
+        expected = 'ahoj zabawa i jedziemy dalej'
+        assert_that(self.temp.Morse_decoding('.- .... --- .---     --.. .- -... .- .-- .-     ..     .--- . -.. --.. .. . -- -.--     -.. .- .-.. . .---')).is_equal_to(expected)
     def tearDown(self):
         self.test_object = None
 
