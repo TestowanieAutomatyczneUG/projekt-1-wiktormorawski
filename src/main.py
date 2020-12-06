@@ -70,5 +70,7 @@ class Main:
 
     def Ceasar_coding(self, text):
         result = ''
-        if text == 'abc':
-            return 'def'
+        for letter in text:
+            ceasar_index = self.ceasar_alphabet.index(letter) + 3
+            result += (self.ceasar_alphabet[ceasar_index])
+        return result
