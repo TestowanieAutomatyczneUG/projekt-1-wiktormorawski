@@ -16,3 +16,11 @@ class TestAffine(unittest.TestCase):
     ])
     def test_Affine_coding_equal_string(self, text, a, b, expected):
         self.assertEqual(self.temp.Affine_coding(text, a, b), expected)
+    @parameterized.expand([
+        ('VENI VICI', 9, 123, 'ADGN ANLN'),
+        ('Na Statek Kamraci', 15, 12, 'Zm Wlmlug Gmkhmqc'),
+        ('DO wozu BRACIE', 15, 8, 'Bk aktw XDIMYQ'),
+        ('kolokwium jest za dwa dni', 21, 6, 'iodoiasky nmup lg rag rts')
+    ])
+    def test_Affine_coding_equal_string_with_space(self, text, a, b, expected):
+        self.assertEqual(self.temp.Affine_coding(text, a, b), expected)
