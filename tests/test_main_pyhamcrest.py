@@ -33,6 +33,10 @@ class TestCeasar(unittest.TestCase):
     def test_ceasar_coding_not_letters_as_parameter_raises_valueerror(self):
         assert_that(calling(self.temp.Ceasar_coding).with_args('@#$%^^^'), raises(ValueError))
 
+    def test_ceasar_coding_lower_letters_with_space(self):
+        assert_that(self.temp.Ceasar_coding('wiktor morawski'), equal_to('zlnwru prudzvnl'))
+
+
     """Ceasar decoding"""
 
     def test_ceasar_decoding_equal_values_1(self):
