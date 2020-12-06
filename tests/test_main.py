@@ -2,7 +2,7 @@ from main import Main
 import unittest
 from assertpy import assert_that
 
-'only unittest and assertpy'
+'only unittest and assertpy morse'
 
 
 class TestMain(unittest.TestCase):
