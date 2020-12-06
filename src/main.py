@@ -105,3 +105,7 @@ class Main:
                     letter_index += 26
                 result += (self.ceasar_alphabet[letter_index])
         return result
+
+    def Affine_coding(self, text):
+        result = ''
+        return result
