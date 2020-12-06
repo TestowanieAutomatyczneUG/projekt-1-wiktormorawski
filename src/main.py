@@ -110,6 +110,10 @@ class Main:
         result = ''
         if type(text) != str:
             raise ValueError
+        if type(a) != int or a < 0:
+            raise TypeError
+        if type(b) != int or b < 0:
+            raise TypeError
         for letter in text:
             if letter not in self.ceasar_alphabet:
                 if letter == " ":
@@ -123,4 +127,8 @@ class Main:
                 if letter.islower() and affine_index > 25:
                     affine_index -= 26
                 result += (self.ceasar_alphabet[affine_index])
+        return result
+
+    def Affine_decoding(self, code, a, b):
+        result = ''
         return result

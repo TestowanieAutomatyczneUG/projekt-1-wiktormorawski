@@ -36,6 +36,16 @@ class TestAffine(unittest.TestCase):
     def test_Affine_coding_equal_string_lengths(self, text, a, b):
         self.assertEqual(len(self.temp.Affine_coding(text, a, b)), len(text))
 
+    @parameterized.expand([
+        ('xjlups', 1, 1, 'wiktor'),
+        ('maciek', 5, 1, 'xfvrlh'),
+        ('jdqnmdvgps', 7, 3, 'manufaktyr'),
+        ('Bzgdsdwxczgd', 5, 3, 'Kuladajefula'),
+        ('GUABGUwoQQ', 9, 6, 'AQILAQwyEE')
+    ])
+    def test_Affine_decoding_equal_string(self, code, a, b, expected):
+        self.assertEqual(self.temp.Affine_decoding(code, a, b), expected)
+
 
 @parameterized_class(('text', 'a', 'b', 'expected'), [
     ("1234", 3, 2, ValueError),
@@ -44,6 +54,28 @@ class TestAffine(unittest.TestCase):
     ("!@#!$%#@", 11, 13, ValueError),
     (-12, 8, 18, ValueError),
     (0.2, 2, 2, ValueError)
+])
+class Affin_coding_first_parameter_wrong(unittest.TestCase):
+    def setUp(self):
+        self.temp = Main()
+
+    def test_valueErrors(self):
+        assert_raises(self.expected, self.temp.Affine_coding, self.text, self.a, self.b)
+
+    def tearDown(self):
+        self.temp = None
+
+
+@parameterized_class(('text', 'a', 'b', 'expected'), [
+    ("wiktor", -3, 2, TypeError),
+    ("filip", 0.2, 2, TypeError),
+    ("adam", '4', 12, TypeError),
+    ("andrzej", 11, -13, TypeError),
+    ("MARCIN", 8, 0.18, TypeError),
+    ("JANEK", 2, "2", TypeError),
+    ("Kuba", -22, -13, TypeError),
+    ("JAKKuba", 0.22, 1.3, TypeError),
+    ("aiufhsoie", '7', '12', TypeError)
 ])
 class Affin_coding_first_parameter_wrong(unittest.TestCase):
     def setUp(self):
