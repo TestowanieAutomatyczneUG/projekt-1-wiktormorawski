@@ -41,12 +41,16 @@ class TestAffine(unittest.TestCase):
     ("1234", 3, 2, ValueError),
     (1234, 2, 2, ValueError),
     ("ŚĄŚ", 4, 12, ValueError),
-    ("!@#!$%#@", 11, 13, ValueError)
+    ("!@#!$%#@", 11, 13, ValueError),
+    (-12, 8, 18, ValueError),
+    (0.2, 2, 2, ValueError)
 ])
 class Affin_coding_first_parameter_wrong(unittest.TestCase):
     def setUp(self):
         self.temp = Main()
+
     def test_valueErrors(self):
         assert_raises(self.expected, self.temp.Affine_coding, self.text, self.a, self.b)
+
     def tearDown(self):
         self.temp = None

@@ -108,9 +108,14 @@ class Main:
 
     def Affine_coding(self, text, a, b):
         result = ''
+        if type(text) != str:
+            raise ValueError
         for letter in text:
-            if letter == " ":
-                result += " "
+            if letter not in self.ceasar_alphabet:
+                if letter == " ":
+                    result += " "
+                else:
+                    raise ValueError
             else:
                 affine_index = ((self.ceasar_alphabet.index(letter) * a) + b) % 52
                 if letter.isupper() and affine_index < 26:
