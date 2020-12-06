@@ -47,5 +47,14 @@ class TestCeasar(unittest.TestCase):
     def test_ceasar_decoding_letters_lower_and_start_indexes(self):
         assert_that(self.temp.Ceasar_decoding('ahj'), equal_to('xeg'))
 
+    def test_ceasar_decoding_number_as_parameter_raises_valueerror(self):
+        assert_that(calling(self.temp.Ceasar_decoding).with_args(997), raises(ValueError))
+
+    def test_ceasar_decoding_number_string_as_parameter_raises_valueerror(self):
+        assert_that(calling(self.temp.Ceasar_decoding).with_args('2000'), raises(ValueError))
+
+    def test_ceasar_decoding_not_letters_as_parameter_raises_valueerror(self):
+        assert_that(calling(self.temp.Ceasar_decoding).with_args('@#$%^^^'), raises(ValueError))
+
     def tearDown(self):
         self.temp = Main()
