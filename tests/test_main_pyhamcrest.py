@@ -34,9 +34,8 @@ class TestCeasar(unittest.TestCase):
     """Ceasar decoding"""
     def test_ceasar_decoding_equal_values_1(self):
         assert_that(self.temp.Ceasar_decoding('XYZ'), equal_to('UVW'))
-
+        
     def test_ceasar_decoding_equal_values_2_going_back(self):
         assert_that(self.temp.Ceasar_decoding('ABC'), equal_to('XYZ'))
-        
     def tearDown(self):
         self.temp = Main()

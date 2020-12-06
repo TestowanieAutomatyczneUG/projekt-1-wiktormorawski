@@ -86,6 +86,10 @@ class Main:
         result = ''
         for coded_letter in code:
             letter_index = self.ceasar_alphabet.index(coded_letter) - 3
+            if coded_letter.isupper() and letter_index < 26:
+                letter_index += 26
+            if coded_letter.islower() and letter_index < 0:
+                letter_index += 26
             result += (self.ceasar_alphabet[letter_index])
         return result
 
