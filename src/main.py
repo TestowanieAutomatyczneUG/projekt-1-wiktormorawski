@@ -84,5 +84,8 @@ class Main:
         return result
     def Ceasar_decoding(self, code):
         result = ''
+        for coded_letter in code:
+            letter_index = self.ceasar_alphabet.index(coded_letter) - 3
+            result += (self.ceasar_alphabet[letter_index])
         return result
 
