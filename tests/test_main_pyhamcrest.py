@@ -30,6 +30,7 @@ class TestCeasar(unittest.TestCase):
 
     def test_ceasar_coding_not_letters_as_parameter_raises_valueerror(self):
         assert_that(calling(self.temp.Ceasar_coding).with_args('@#$%^^^'), raises(ValueError))
+    
 
     def tearDown(self):
         self.temp = Main()
