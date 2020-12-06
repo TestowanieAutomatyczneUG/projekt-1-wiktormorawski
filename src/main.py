@@ -109,10 +109,13 @@ class Main:
     def Affine_coding(self, text, a, b):
         result = ''
         for letter in text:
-            affine_index = ((self.ceasar_alphabet.index(letter) * a) + b) % 52
-            if letter.isupper() and affine_index < 26:
-                affine_index += 26
-            if letter.islower() and affine_index > 25:
-                affine_index -= 26
-            result += (self.ceasar_alphabet[affine_index])
+            if letter == " ":
+                result += " "
+            else:
+                affine_index = ((self.ceasar_alphabet.index(letter) * a) + b) % 52
+                if letter.isupper() and affine_index < 26:
+                    affine_index += 26
+                if letter.islower() and affine_index > 25:
+                    affine_index -= 26
+                result += (self.ceasar_alphabet[affine_index])
         return result

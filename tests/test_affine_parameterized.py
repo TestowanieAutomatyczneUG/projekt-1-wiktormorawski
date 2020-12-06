@@ -19,7 +19,7 @@ class TestAffine(unittest.TestCase):
     @parameterized.expand([
         ('VENI VICI', 9, 123, 'ADGN ANLN'),
         ('Na Statek Kamraci', 15, 12, 'Zm Wlmlug Gmkhmqc'),
-        ('DO wozu BRACIE', 15, 8, 'Bk aktw XDIMYQ'),
+        ('DO wozu BRACIE', 15, 8, 'BK aktw XDIMYQ'),
         ('kolokwium jest za dwa dni', 21, 6, 'iodoiasky nmup lg rag rts')
     ])
     def test_Affine_coding_equal_string_with_space(self, text, a, b, expected):
