@@ -106,6 +106,6 @@ class Main:
                 result += (self.ceasar_alphabet[letter_index])
         return result
 
-    def Affine_coding(self, text):
+    def Affine_coding(self, text, a, b):
         result = ''
         return result
