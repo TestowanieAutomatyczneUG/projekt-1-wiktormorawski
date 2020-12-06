@@ -9,7 +9,7 @@ class TestCeasar(unittest.TestCase):
 
     def test_Instance_temp_Main(self):
         assert_that(self.temp, is_(Main))
-
+    """Ceasar coding"""
     def test_ceasar_coding_equal_values_1(self):
         assert_that(self.temp.Ceasar_coding('abc'), equal_to('def'))
 
@@ -31,6 +31,8 @@ class TestCeasar(unittest.TestCase):
     def test_ceasar_coding_not_letters_as_parameter_raises_valueerror(self):
         assert_that(calling(self.temp.Ceasar_coding).with_args('@#$%^^^'), raises(ValueError))
 
-
+    """Ceasar decoding"""
+    def test_ceasar_decoding_equal_values_1(self):
+        assert_that(self.temp.Ceasar_decoding('XYZ'), equal_to('UVW'))
     def tearDown(self):
         self.temp = Main()

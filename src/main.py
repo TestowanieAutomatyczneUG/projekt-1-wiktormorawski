@@ -82,4 +82,7 @@ class Main:
                 ceasar_index -= 26
             result += (self.ceasar_alphabet[ceasar_index])
         return result
+    def Ceasar_decoding(self, code):
+        result = ''
+        return result
 
