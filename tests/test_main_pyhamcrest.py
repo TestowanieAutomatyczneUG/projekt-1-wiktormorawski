@@ -18,6 +18,8 @@ class TestCeasar(unittest.TestCase):
 
     def test_ceasar_coding_equal_last_indexed_letters(self):
         assert_that(self.temp.Ceasar_coding('XYZ'), equal_to('ABC'))
+    def test_ceasar_coding_letter_lower_and_at_the_end_of_indexes(self):
+        assert_that(self.temp.Ceasar_coding('avwxyz'), equal_to('dyzabc'))
 
     def tearDown(self):
         self.temp = Main()
