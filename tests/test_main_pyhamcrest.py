@@ -15,3 +15,9 @@ class TestCeasar(unittest.TestCase):
 
     def test_ceasar_coding_equal_values_2(self):
         assert_that(self.temp.Ceasar_coding('def'), equal_to('ghi'))
+
+    def test_ceasar_coding_equal_last_indexed_letters(self):
+        assert_that(self.temp.Ceasar_coding('XYZ'), equal_to('ABC'))
+
+    def tearDown(self):
+        self.temp = Main()
