@@ -8,7 +8,7 @@ from assertpy import assert_that
 class TestMain(unittest.TestCase):
     def setUp(self):
         self.temp = Main()
-
+    """Morse coding tests"""
     def test_morse_coding_value_equal_wiktor(self):
         expected = '.-- .. -.- - --- .-. '
         self.assertEqual(expected, self.temp.Morse_coding('wiktor'))
@@ -23,6 +23,7 @@ class TestMain(unittest.TestCase):
     def test_morse_coding_with_sentence(self):
         assert_that(self.temp.Morse_coding('Ala ma kota')).is_equal_to('.- .-.. .-     -- .-     -.- --- - .- ')
 
+    """Morse decoding tests"""
     def test_morse_decoding_to_text_without_space_between_equal(self):
         expected = 'mrozonka'
         assert_that(self.temp.Morse_decoding('-- .-. --- --.. --- -. -.- .-')).is_equal_to(expected)
