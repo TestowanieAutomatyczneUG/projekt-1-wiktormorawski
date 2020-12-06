@@ -18,8 +18,18 @@ class TestCeasar(unittest.TestCase):
 
     def test_ceasar_coding_equal_last_indexed_letters(self):
         assert_that(self.temp.Ceasar_coding('XYZ'), equal_to('ABC'))
+
     def test_ceasar_coding_letter_lower_and_at_the_end_of_indexes(self):
         assert_that(self.temp.Ceasar_coding('avwxyz'), equal_to('dyzabc'))
+
+    def test_ceasar_coding_number_as_parameter_raises_valueerror(self):
+        assert_that(calling(self.temp.Ceasar_coding).with_args(1234), raises(ValueError))
+
+    def test_ceasar_coding_number_string_as_parameter_raises_valueerror(self):
+        assert_that(calling(self.temp.Ceasar_coding).with_args('123444'), raises(ValueError))
+
+    def test_ceasar_coding_not_letters_as_parameter_raises_valueerror(self):
+        assert_that(calling(self.temp.Ceasar_coding).with_args('@#$%^^^'), raises(ValueError))
 
     def tearDown(self):
         self.temp = Main()
