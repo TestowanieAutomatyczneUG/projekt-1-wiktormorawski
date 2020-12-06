@@ -35,3 +35,18 @@ class TestAffine(unittest.TestCase):
     ])
     def test_Affine_coding_equal_string_lengths(self, text, a, b):
         self.assertEqual(len(self.temp.Affine_coding(text, a, b)), len(text))
+
+
+@parameterized_class(('text', 'a', 'b', 'expected'), [
+    ("1234", 3, 2, ValueError),
+    (1234, 2, 2, ValueError),
+    ("ŚĄŚ", 4, 12, ValueError),
+    ("!@#!$%#@", 11, 13, ValueError)
+])
+class Affin_coding_first_parameter_wrong(unittest.TestCase):
+    def setUp(self):
+        self.temp = Main()
+    def test_valueErrors(self):
+        assert_raises(self.expected, self.temp.Affine_coding, self.text, self.a, self.b)
+    def tearDown(self):
+        self.temp = None
