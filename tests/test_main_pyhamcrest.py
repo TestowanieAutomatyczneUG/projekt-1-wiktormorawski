@@ -65,5 +65,8 @@ class TestCeasar(unittest.TestCase):
     def test_ceasar_decoding_lower_upper_letters_with_space(self):
         assert_that(self.temp.Ceasar_decoding('xyz AC'), equal_to('uvw XZ'))
 
+    def test_ceasar_decoding_blank_string(self):
+        assert_that(len(self.temp.Ceasar_decoding('')), less_than(1))
+
     def tearDown(self):
         self.temp = Main()
