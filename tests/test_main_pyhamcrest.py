@@ -44,5 +44,8 @@ class TestCeasar(unittest.TestCase):
     def test_ceasar_decoding_letters_lower(self):
         assert_that(self.temp.Ceasar_decoding('wik'), equal_to('tfh'))
 
+    def test_ceasar_decoding_letters_lower_and_start_indexes(self):
+        assert_that(self.temp.Ceasar_decoding('ahj'), equal_to('xeg'))
+
     def tearDown(self):
         self.temp = Main()
