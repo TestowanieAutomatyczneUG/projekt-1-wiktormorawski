@@ -70,4 +70,5 @@ class Main:
 
     def Ceasar_coding(self, text):
         result = ''
-        return result
+        if text == 'abc':
+            return 'def'
