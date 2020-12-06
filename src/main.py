@@ -72,5 +72,9 @@ class Main:
         result = ''
         for letter in text:
             ceasar_index = self.ceasar_alphabet.index(letter) + 3
+            if letter.isupper() and ceasar_index > 51:
+                ceasar_index -= 26
+            if letter.islower() and ceasar_index > 25:
+                ceasar_index -= 26
             result += (self.ceasar_alphabet[ceasar_index])
         return result
