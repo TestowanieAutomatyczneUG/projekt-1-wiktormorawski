@@ -82,9 +82,14 @@ class Main:
                 ceasar_index -= 26
             result += (self.ceasar_alphabet[ceasar_index])
         return result
+
     def Ceasar_decoding(self, code):
         result = ''
+        if type(code) != str:
+            raise ValueError
         for coded_letter in code:
+            if coded_letter not in self.ceasar_alphabet:
+                raise ValueError
             letter_index = self.ceasar_alphabet.index(coded_letter) - 3
             if coded_letter.isupper() and letter_index < 26:
                 letter_index += 26
@@ -92,4 +97,3 @@ class Main:
                 letter_index += 26
             result += (self.ceasar_alphabet[letter_index])
         return result
-
