@@ -132,12 +132,15 @@ class Main:
     def Affine_decoding(self, code, a, b):
         result = ''
         for code_letter in code:
-            affine_index = (a * (self.ceasar_alphabet.index(code_letter) - b)) % 52
-            if code_letter.isupper() and affine_index < 26:
-                affine_index += 26
-            if code_letter.islower() and affine_index > 25:
-                affine_index -= 26
-            result += (self.ceasar_alphabet[affine_index])
+            if code_letter == " ":
+                result += " "
+            else:
+                affine_index = (a * (self.ceasar_alphabet.index(code_letter) - b)) % 52
+                if code_letter.isupper() and affine_index < 26:
+                    affine_index += 26
+                if code_letter.islower() and affine_index > 25:
+                    affine_index -= 26
+                result += (self.ceasar_alphabet[affine_index])
         return result
 
     def start(self):
