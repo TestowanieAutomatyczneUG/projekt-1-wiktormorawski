@@ -131,9 +131,18 @@ class Main:
 
     def Affine_decoding(self, code, a, b):
         result = ''
+        if type(code) != str:
+            raise ValueError
+        if type(a) != int or a < 0:
+            raise ValueError
+        if type(b) != int or b < 0:
+            raise ValueError
         for code_letter in code:
-            if code_letter == " ":
-                result += " "
+            if code_letter not in self.ceasar_alphabet:
+                if code_letter == " ":
+                    result += " "
+                else:
+                    raise ValueError
             else:
                 affine_index = (a * (self.ceasar_alphabet.index(code_letter) - b)) % 52
                 if code_letter.isupper() and affine_index < 26:

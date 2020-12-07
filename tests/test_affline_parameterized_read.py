@@ -31,7 +31,7 @@ class TestAffinRead(unittest.TestCase):
                 self.assertEqual(self.temp.Affine_decoding(code, a, b), expected)
         file.close()
 
-    def test_Affin_decoding_equal_string_with_space(self):
+    def test_Affin_decoding_first_parameter_wrong(self):
         file = open("../data/tests_parameterized_exceptions")
         for line in file:
             if line.startswith("#") or line.startswith(" ") or line.startswith("\n"):
@@ -39,6 +39,28 @@ class TestAffinRead(unittest.TestCase):
             else:
                 data = line.split(" ")
                 code, a, b = data[0], int(data[1].strip("\n")), int(data[2].strip("\n"))
+                assert_raises(ValueError, self.temp.Affine_decoding, code, a, b)
+        file.close()
+
+    def test_Affin_decoding_second_or_third_parameter_wrong(self):
+        file = open("../data/tests_parameterized_exceptions_second_or_third")
+        for line in file:
+            if line.startswith("#") or line.startswith(" ") or line.startswith("\n"):
+                pass
+            else:
+                data = line.split(" ")
+                code, a, b = data[0], int(data[1].strip("\n")), int(data[2].strip("\n"))
+                assert_raises(ValueError, self.temp.Affine_decoding, code, a, b)
+        file.close()
+
+    def test_Affin_decoding_float_raise_error(self):
+        file = open("../data/tests_parameterized_exceptions_second_or_third_float")
+        for line in file:
+            if line.startswith("#") or line.startswith(" ") or line.startswith("\n"):
+                pass
+            else:
+                data = line.split(" ")
+                code, a, b = data[0], float(data[1].strip("\n")), float(data[2].strip("\n"))
                 assert_raises(ValueError, self.temp.Affine_decoding, code, a, b)
         file.close()
 
