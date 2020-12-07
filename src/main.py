@@ -1,3 +1,4 @@
+import requests
 class Main:
     def __init__(self):
         self.translation = [(' ', '   '), ('A', '.-'), ('B', '-...'), ('C', '-.-.'), ('D', '-..'), ('E', '.'),
@@ -129,6 +130,13 @@ class Main:
                 result += (self.ceasar_alphabet[affine_index])
         return result
 
+    def Make_request(self):
+        link = "https://httpie.io/hello"
+        r = requests.get(link)
+        if r.status_code == 200:
+            r.text
+        else:
+            return "Bye Bye"
     def Affine_decoding(self, code, a, b):
         result = ''
         if type(code) != str:
@@ -231,6 +239,7 @@ class Main:
                 if int(continue_choice) == 1:
                     self.start()
                 else:
+                    print(self.Make_request())
                     return
 if __name__ == "__main__":
     temp = Main()
