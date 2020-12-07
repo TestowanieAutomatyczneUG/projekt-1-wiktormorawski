@@ -67,7 +67,7 @@ class Affin_coding_first_parameter_wrong(unittest.TestCase):
     ("JAKKuba", 0.22, 1.3, TypeError),
     ("aiufhsoie", '7', '12', TypeError)
 ])
-class Affin_coding_first_parameter_wrong(unittest.TestCase):
+class Affin_coding_second_or_third_parameter_wrong(unittest.TestCase):
     def setUp(self):
         self.temp = Main()
 
