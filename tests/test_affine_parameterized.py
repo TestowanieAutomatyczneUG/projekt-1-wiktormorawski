@@ -36,16 +36,6 @@ class TestAffine(unittest.TestCase):
     def test_Affine_coding_equal_string_lengths(self, text, a, b):
         self.assertEqual(len(self.temp.Affine_coding(text, a, b)), len(text))
 
-    @parameterized.expand([
-        ('xjlups', 1, 1, 'wiktor'),
-        ('maciek', 5, 1, 'xfvrlh'),
-        ('jdqnmdvgps', 7, 3, 'manufaktyr'),
-        ('Bzgdsdwxczgd', 5, 3, 'Kuladajefula'),
-        ('GUABGUwoQQ', 9, 6, 'AQILAQwyEE')
-    ])
-    def test_Affine_decoding_equal_string(self, code, a, b, expected):
-        self.assertEqual(self.temp.Affine_decoding(code, a, b), expected)
-
 
 @parameterized_class(('text', 'a', 'b', 'expected'), [
     ("1234", 3, 2, ValueError),

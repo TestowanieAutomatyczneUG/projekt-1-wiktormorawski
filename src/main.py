@@ -131,4 +131,95 @@ class Main:
 
     def Affine_decoding(self, code, a, b):
         result = ''
+        for code_letter in code:
+            affine_index = (a * (self.ceasar_alphabet.index(code_letter) - b)) % 52
+            if code_letter.isupper() and affine_index < 26:
+                affine_index += 26
+            if code_letter.islower() and affine_index > 25:
+                affine_index -= 26
+            result += (self.ceasar_alphabet[affine_index])
         return result
+
+    def start(self):
+        print("Wybierz liczbę który kod chcesz dekryptować lub kryptować .\n 1 Morse'a \n 2 Ceasara \n 3 Afiniczny")
+        choice_code = input()
+        if int(choice_code) == 1:
+            print("Chcesz : \n 1 szyfrować \n 2 odszyfrować")
+            crypt_choice = input()
+            if int(crypt_choice) == 1:
+                print("Podaj tekst do zaszyfrowania")
+                text = input()
+                print("Twój zaszyfrowany kod: ", self.Morse_coding(text))
+                print("Czy chcesz coś jeszcze szyfrować lub odszyfrować ?   1 -> chcę   0 -> zakończ")
+                continue_choice = input()
+                if int(continue_choice) == 1:
+                    self.start()
+                else:
+                    return
+            if int(crypt_choice) == 2:
+                print("Podaj tekst do odszyfrowania")
+                text = input()
+                print("Twój odszyfrowany kod: ", self.Morse_decoding(text))
+                print("Czy chcesz coś jeszcze szyfrować lub odszyfrować ?   1 -> chcę   0 -> zakończ")
+                continue_choice = input()
+                if int(continue_choice) == 1:
+                    self.start()
+                else:
+                    return
+        if int(choice_code) == 2:
+            print("Chcesz : \n 1 szyfrować \n 2 odszyfrować")
+            crypt_choice = input()
+            if int(crypt_choice) == 1:
+                print("Podaj tekst do zaszyfrowania")
+                text = input()
+                print("Twój zaszyfrowany kod: ", self.Ceasar_coding(text))
+                print("Czy chcesz coś jeszcze szyfrować lub odszyfrować ?   1 -> chcę   0 -> zakończ")
+                continue_choice = input()
+                if int(continue_choice) == 1:
+                    self.start()
+                else:
+                    return
+            if int(crypt_choice) == 2:
+                print("Podaj tekst do odszyfrowania")
+                text = input()
+                print("Twój odszyfrowany kod: ", self.Ceasar_decoding(text))
+                print("Czy chcesz coś jeszcze szyfrować lub odszyfrować ?   1 -> chcę   0 -> zakończ")
+                continue_choice = input()
+                if int(continue_choice) == 1:
+                    self.start()
+                else:
+                    return
+        if int(choice_code) == 3:
+            print("Chcesz : \n 1 szyfrować \n 2 odszyfrować")
+            crypt_choice = input()
+            if int(crypt_choice) == 1:
+                print("Podaj tekst do zaszyfrowania")
+                text = input()
+                print("Podaj parametr a :")
+                a = input()
+                print("Podaj parametr b :")
+                b = input()
+                print("Twój zaszyfrowany kod: ", self.Affine_coding(text, a, b))
+                print("Czy chcesz coś jeszcze szyfrować lub odszyfrować ?   1 -> chcę   0 -> zakończ")
+                continue_choice = input()
+                if int(continue_choice) == 1:
+                    self.start()
+                else:
+                    return
+            if int(crypt_choice) == 2:
+                print("Podaj tekst do odszyfrowania")
+                text = input()
+                print("Podaj parametr a :")
+                a = input()
+                print("Podaj parametr b :")
+                b = input()
+                print("Twój odszyfrowany kod: ", self.Affine_decoding(text, a, b))
+                print("Czy chcesz coś jeszcze szyfrować lub odszyfrować ?   1 -> chcę   0 -> zakończ")
+                continue_choice = input()
+                if int(continue_choice) == 1:
+                    self.start()
+                else:
+                    return
+if __name__ == "__main__":
+    temp = Main()
+    temp.start()
