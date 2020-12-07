@@ -1,4 +1,6 @@
 import requests
+
+
 class Main:
     def __init__(self):
         self.translation = [(' ', '   '), ('A', '.-'), ('B', '-...'), ('C', '-.-.'), ('D', '-..'), ('E', '.'),
@@ -120,7 +122,7 @@ class Main:
                 if letter == " ":
                     result += " "
                 else:
-                    raise ValueError
+                    raise ValueError('Przyjmuje tylko litery')
             else:
                 affine_index = ((self.ceasar_alphabet.index(letter) * a) + b) % 52
                 if letter.isupper() and affine_index < 26:
@@ -130,13 +132,22 @@ class Main:
                 result += (self.ceasar_alphabet[affine_index])
         return result
 
+    def createOpinion(self, opinion):
+        try:
+            file = open("../data/opinions", "w")
+            file.write(opinion)
+            file.close()
+        except IOError:
+            print("Niestety nie udało się zapisać opinii")
+
     def Make_request(self):
         link = "https://httpie.io/hello"
         r = requests.get(link)
         if r.status_code == 200:
-            r.text
+            return r.text
         else:
             return "Bye Bye"
+
     def Affine_decoding(self, code, a, b):
         result = ''
         if type(code) != str:
@@ -219,7 +230,7 @@ class Main:
                 a = input()
                 print("Podaj parametr b :")
                 b = input()
-                print("Twój zaszyfrowany kod: ", self.Affine_coding(text, a, b))
+                print("Twój zaszyfrowany kod: ", self.Affine_coding(text, int(a), int(b)))
                 print("Czy chcesz coś jeszcze szyfrować lub odszyfrować ?   1 -> chcę   0 -> zakończ")
                 continue_choice = input()
                 if int(continue_choice) == 1:
@@ -233,14 +244,24 @@ class Main:
                 a = input()
                 print("Podaj parametr b :")
                 b = input()
-                print("Twój odszyfrowany kod: ", self.Affine_decoding(text, a, b))
+                print("Twój odszyfrowany kod: ", self.Affine_decoding(text, int(a), int(b)))
                 print("Czy chcesz coś jeszcze szyfrować lub odszyfrować ?   1 -> chcę   0 -> zakończ")
                 continue_choice = input()
                 if int(continue_choice) == 1:
                     self.start()
                 else:
-                    print(self.Make_request())
-                    return
+                    print("Chcesz się podzielić swoją opinią ?    1 -> Tak    0 -> Nie")
+                    make_opinion = input()
+                    if int(make_opinion) == 1:
+                        print("Napisz opinie o programie poniżej :)")
+                        opinion = input()
+                        print("Dziękujemy za opinie i tak ich nie czytamy lol")
+                        self.createOpinion(opinion)
+                    else:
+                        print(self.Make_request())
+                        return
+
+
 if __name__ == "__main__":
     temp = Main()
     temp.start()
