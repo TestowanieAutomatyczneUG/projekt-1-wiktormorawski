@@ -58,6 +58,7 @@ def check_result_same_length__string__and__letters_same_case(self, previous_val)
     else:
         raise Exception('Not Same length')
 
+
 add_extension(check_result_same_length__string__and__letters_same_case)
 
 
@@ -67,11 +68,19 @@ class Main_ceasar_coding_Matchers(unittest.TestCase):
 
     def test_Ceasar_coding_check_result_same_length__string__and__letters_same_case(self):
         argument = 'wiKtOOOr'
-        assert_that(self.temp.Ceasar_coding(argument)).check_result_same_length__string__and__letters_same_case(argument)
+        assert_that(self.temp.Ceasar_coding(argument)).check_result_same_length__string__and__letters_same_case(
+            argument)
 
     def test_Ceasar_coding_check_result_same_length__string__and__letters_same_case_but_with_space(self):
         argument = 'wKK OKA'
-        assert_that(self.temp.Ceasar_coding(argument)).check_result_same_length__string__and__letters_same_case(argument)
+        assert_that(self.temp.Ceasar_coding(argument)).check_result_same_length__string__and__letters_same_case(
+            argument)
+
+
+class Main_ceasar_decoding_Matchers(unittest.TestCase):
+    def setUp(self):
+        self.temp = Main()
+
 
 
 if __name__ == '__main__':
