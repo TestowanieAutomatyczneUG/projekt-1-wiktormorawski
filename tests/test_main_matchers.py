@@ -86,6 +86,11 @@ class Main_ceasar_decoding_Matchers(unittest.TestCase):
         assert_that(self.temp.Ceasar_coding(argument)).check_result_same_length__string__and__letters_same_case(
             argument)
 
+    def test_Ceasar_decoding_check_result_same_length__string__and__letters_same_case(self):
+        argument = 'ConnORmCgregor'
+        assert_that(self.temp.Ceasar_coding(argument)).check_result_same_length__string__and__letters_same_case(
+            argument)
+
 
 if __name__ == '__main__':
     unittest.main()
