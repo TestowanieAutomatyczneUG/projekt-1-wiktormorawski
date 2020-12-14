@@ -81,6 +81,10 @@ class Main_ceasar_decoding_Matchers(unittest.TestCase):
     def setUp(self):
         self.temp = Main()
 
+    def test_Ceasar_decoding_check_result_same_length__string__and__letters_same_case_but_with_space(self):
+        argument = 'MMMii doah'
+        assert_that(self.temp.Ceasar_coding(argument)).check_result_same_length__string__and__letters_same_case(
+            argument)
 
 
 if __name__ == '__main__':
