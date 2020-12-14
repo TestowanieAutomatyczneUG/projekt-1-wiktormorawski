@@ -1,0 +1,16 @@
+# general things to ignore
+src/dont_mind.py
+htmlcov
+build/
+dist/
+*.egg-info/
+*.egg
+*.py[cod]
+__pycache__/
+*.so
+*~
+
+# due to using tox and pytest
+.tox
+.cache
+.coverage
