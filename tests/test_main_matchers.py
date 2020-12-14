@@ -17,7 +17,15 @@ def check_result_length_higher_and_string_and_contain_spaces(self, previous_val)
             raise Exception(f'{self.val} is not a string')
     else:
         raise Exception(f'{self.val} is not longer')
-
+def check_result_contain_single_spaces_beetween_morse(self, previous_val):
+    if " " not in self.val:
+        if self.val.count(" ") == len(previous_val):
+            return self.val
+        else:
+            raise Exception('spaces does not match')
+    else:
+        raise Exception('Result does not contain spaces')
+add_extension(check_result_contain_single_spaces_beetween_morse)
 add_extension(check_result_length_higher_and_string_and_contain_spaces)
 
 class Main_morse_coding_decoding_Matchers(unittest.TestCase):
@@ -27,7 +35,7 @@ class Main_morse_coding_decoding_Matchers(unittest.TestCase):
     def test_Morse_coding_check_result_length_higher_and_string_and_contain_spaces(self):
         argument = "wiktor 1"
         assert_that(self.temp.Morse_coding(argument)).check_result_length_higher_and_string_and_contain_spaces(argument)
-
+    
 
 if __name__ == '__main__':
     unittest.main()
