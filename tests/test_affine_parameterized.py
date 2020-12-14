@@ -72,3 +72,13 @@ class Affin_coding_second_or_third_parameter_wrong(unittest.TestCase):
         temp = Main()
         assert_raises(self.expected, temp.Affine_coding, self.text, self.a, self.b)
 
+
+@parameterized([("1234", 3, 2),
+                (1234, 2, 2),
+                ("ŚĄŚ", 4, 12),
+                ("!@#!$%#@", 11, 13),
+                (-12, 8, 18),
+                (0.2, 2, 2)])
+def test_Affin_decoding_first_parameter_wrong(code, a, b):
+    temp = Main()
+    assert_raises(ValueError, temp.Affine_decoding, code, a, b)
