@@ -68,7 +68,10 @@ class Main_ceasar_coding_Matchers(unittest.TestCase):
     def test_Ceasar_coding_check_result_same_length__string__and__letters_same_case(self):
         argument = 'wiKtOOOr'
         assert_that(self.temp.Ceasar_coding(argument)).check_result_same_length__string__and__letters_same_case(argument)
-    
+
+    def test_Ceasar_coding_check_result_same_length__string__and__letters_same_case_but_with_space(self):
+        argument = 'wKK OKA'
+        assert_that(self.temp.Ceasar_coding(argument)).check_result_same_length__string__and__letters_same_case(argument)
 
 
 if __name__ == '__main__':
