@@ -113,9 +113,7 @@ class Main:
         result = ''
         if type(text) != str:
             raise ValueError
-        if type(a) != int or a < 0:
-            raise TypeError
-        if type(b) != int or b < 0:
+        if type(a) != int or a < 0 or type(b) != int or b < 0:
             raise TypeError
         for letter in text:
             if letter not in self.ceasar_alphabet:
