@@ -1,5 +1,6 @@
 # general things to ignore
 src/dont_mind.py
+htmlcov
 build/
 dist/
 *.egg-info/
@@ -12,3 +13,4 @@ __pycache__/
 # due to using tox and pytest
 .tox
 .cache
+.coverage

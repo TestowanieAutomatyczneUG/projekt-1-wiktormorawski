@@ -10,7 +10,7 @@ class TestAffinRead(unittest.TestCase):
         self.temp = Main()
 
     def test_Affin_decoding_equal_string(self):
-        file = open("../data/tests_parameterized")
+        file = open("data/tests_parameterized")
         for line in file:
             if line.startswith("#") or line.startswith(" ") or line.startswith("\n"):
                 pass
@@ -21,7 +21,7 @@ class TestAffinRead(unittest.TestCase):
         file.close()
 
     def test_Affin_decoding_equal_string_with_space(self):
-        file = open("../data/tests_parameterized_with_spaces")
+        file = open("data/tests_parameterized_with_spaces")
         for line in file:
             if line.startswith("#") or line.startswith(" ") or line.startswith("\n"):
                 pass
@@ -32,7 +32,7 @@ class TestAffinRead(unittest.TestCase):
         file.close()
 
     def test_Affin_decoding_first_parameter_wrong(self):
-        file = open("../data/tests_parameterized_exceptions")
+        file = open("data/tests_parameterized_exceptions")
         for line in file:
             if line.startswith("#") or line.startswith(" ") or line.startswith("\n"):
                 pass
@@ -43,7 +43,7 @@ class TestAffinRead(unittest.TestCase):
         file.close()
 
     def test_Affin_decoding_second_or_third_parameter_wrong(self):
-        file = open("../data/tests_parameterized_exceptions_second_or_third")
+        file = open("data/tests_parameterized_exceptions_second_or_third")
         for line in file:
             if line.startswith("#") or line.startswith(" ") or line.startswith("\n"):
                 pass
@@ -54,7 +54,7 @@ class TestAffinRead(unittest.TestCase):
         file.close()
 
     def test_Affin_decoding_float_raise_error(self):
-        file = open("../data/tests_parameterized_exceptions_second_or_third_float")
+        file = open("data/tests_parameterized_exceptions_second_or_third_float")
         for line in file:
             if line.startswith("#") or line.startswith(" ") or line.startswith("\n"):
                 pass

@@ -68,11 +68,7 @@ class Affin_coding_first_parameter_wrong(unittest.TestCase):
     ("aiufhsoie", '7', '12', TypeError)
 ])
 class Affin_coding_second_or_third_parameter_wrong(unittest.TestCase):
-    def setUp(self):
-        self.temp = Main()
-
     def test_valueErrors(self):
-        assert_raises(self.expected, self.temp.Affine_coding, self.text, self.a, self.b)
+        temp = Main()
+        assert_raises(self.expected, temp.Affine_coding, self.text, self.a, self.b)
 
-    def tearDown(self):
-        self.temp = None

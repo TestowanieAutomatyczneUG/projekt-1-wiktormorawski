@@ -21,7 +21,7 @@ class Main:
         self.correct_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
                                 'R',
                                 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8',
-                                '9', ' ']
+                                '9', ' ', ',', '.', '?', ';', ':', '/', '_', '!', '-', '+', '(', ')', '=', '@']
 
         self.correct_codes = ['', '.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-',
                               '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--',
@@ -136,7 +136,11 @@ class Main:
         try:
             file = open("../data/opinions", "w")
             file.write(opinion)
+            res = requests.post("http://localhost:3000/opinions",data= {'op': opinion})
             file.close()
+            if res.status_code != 200:
+                print("Wystąpił błąd spróbuj ponownie póżniej :)")
+                return
         except IOError:
             print("Niestety nie udało się zapisać opinii")
 
@@ -146,7 +150,7 @@ class Main:
         if r.status_code == 200:
             return r.text
         else:
-            return "Bye Bye"
+            return "Goodbye"
 
     def Affine_decoding(self, code, a, b):
         result = ''
@@ -171,7 +175,7 @@ class Main:
                 result += (self.ceasar_alphabet[affine_index])
         return result
 
-    def start(self):
+    def start(self): # pragma: no cover
         print("Wybierz liczbę który kod chcesz dekryptować lub kryptować .\n 1 Morse'a \n 2 Ceasara \n 3 Afiniczny")
         choice_code = input()
         if int(choice_code) == 1:
@@ -263,5 +267,5 @@ class Main:
 
 
 if __name__ == "__main__":
-    temp = Main()
-    temp.start()
+    programme = Main()
+    programme.start()
